@@ -64,7 +64,7 @@ if (isset($_POST['delete'])) {
                         <td><?php echo $index; ?></td>
                         <td><?php echo $product_name; ?></td>
                         <td>
-                            <img src="http://localhost/uddlw/assets/img/<?= $img ?>" alt="" class="h-40 w-40">
+                            <img src="http://localhost/uddlw/assets/img/<?= $img ?>" alt="" class="md:h-40 md:w-40">
                         </td>
                         <td><?php echo $product_quantity; ?></td>
                         <td><?php echo $product_price; ?></td>

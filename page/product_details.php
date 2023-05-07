@@ -22,15 +22,15 @@ if (isset($_GET['id'])) {
     <?php
     require_once('../shared/navbar.php')
     ?>
-    <div class="grid grid-cols-2 pt-20 mb-10 mx-16">
+    <div class="md:grid md:grid-cols-2 pt-20 mb-10 mx-16 flex flex-col">
         <div>
-            <img src="http://localhost/uddlw/assets/img/<?= $row['img'] ?>" alt="" class="h-[600px]" />
+            <img src="http://localhost/uddlw/assets/img/<?= $row['img'] ?>" alt="" class="md:h-[600px]" />
         </div>
-        <div class="flex flex-col pl-16">
-            <span class="text-[50px] font-bold text-black">
+        <div class="flex flex-col md:pl-16">
+            <span class="md:text-[50px] font-bold text-black mt-4 md:mt-0">
                 <?= $row['name'] ?>
             </span>
-            <span class="text-[30px] font-bold text-error mt-4">
+            <span class="md:text-[30px] font-bold text-error mt-4">
                 <?= number_format($row['price'], 0, '.', '.'); ?>
                 VNĐ
             </span>
@@ -44,8 +44,8 @@ if (isset($_GET['id'])) {
             </span>
 
             <span class="divider"></span>
-            <span class="text-[20px] text-black mt-4">
-                <?= $row['description'] ?>
+            <span class="md:text-[20px] text-black mt-4">
+                Mô tả sản phẩm: <?= $row['description'] ?>
             </span>
             <form method="post" action="http://localhost/uddlw/page/addtocart.php">
                 <input type="hidden" name="product_id" value=<?= $row['id'] ?> />
