@@ -4,6 +4,7 @@ if (isset($_COOKIE['cart'])) {
 } else {
     $cart = array();
 }
+
 if (isset($_POST['delete'])) {
     $product_id = $_POST['product_id'];
     if (array_key_exists($product_id, $cart)) {
@@ -14,6 +15,7 @@ if (isset($_POST['delete'])) {
     setcookie('cart', json_encode($cart, JSON_UNESCAPED_UNICODE), time() + (86400 * 30), "/");
     header("Refresh:0");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en" data-theme="cupcake">
@@ -67,8 +69,8 @@ if (isset($_POST['delete'])) {
                             <img src="http://localhost/uddlw/assets/img/<?= $img ?>" alt="" class="md:h-40 md:w-40">
                         </td>
                         <td><?php echo $product_quantity; ?></td>
-                        <td><?php echo $product_price; ?></td>
-                        <td><?php echo $product_total; ?></td>
+                        <td><?= number_format($product_price, 0, '.', '.'); ?> VNĐ</td>
+                        <td><?= number_format($product_total, 0, '.', '.'); ?> VNĐ</td>
                         <td>
                             <form action="" method="post">
                                 <input type="hidden" name="product_id" value=<?= $product_id ?> />
@@ -83,6 +85,9 @@ if (isset($_POST['delete'])) {
                 ?>
             </tbody>
         </table>
+        <div class="flex flex-row justify-end">
+            Tổng tiền: <span class="text-error"><?= number_format($total_price, 0, '.', '.'); ?> VNĐ</span>
+        </div>
     </div>
     <?php require_once('../shared/footer.php') ?>
 </body>
